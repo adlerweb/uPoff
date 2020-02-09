@@ -8,7 +8,7 @@ It is mainly aimed at battery powered sensor applications like door sensors, whi
 
 ## Connecting your µC
 
-Remove the positive connection between your power source and µC. Connect the battery to **VCC** and your µC to **OUT**. Additionally connect **GND** to your existing ground. The external sensor should pull **SW** low to activate the circuit. Lastly run a wire between one of your GPIO-Pins and **ON**. If you want to use the included RTC you'll also need to connect the I²C-Lines **SDA** and **SCL** to a free pair of GPIOs.
+Remove the positive connection between your power source and µC. Connect the battery to **VCC** and your µC to **OUT**. Additionally connect **GND** to your existing ground. The external sensor should pull **SW** low to activate the circuit. Lastly run a wire between one of your GPIO-Pins and **ON**. If you want to use the included RTC you'll also need to connect the I²C-Lines **SDA** and **SCL**. On AVR and STM32 based microcontrollers you'll have to use the dedicated I²C pins, on ESP8266, ESP32 you can use any free GPIO.
 
 ## Software control
 
