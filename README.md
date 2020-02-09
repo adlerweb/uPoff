@@ -14,12 +14,18 @@ Remove the positive connection between your power source and µC. Connect the ba
 
 Usually power only stays on as long as **SW** is low, however most tasks take longer to complete. To keep power on it is crucial to drive **ON** high as soon as your µC is started. When finished you can turn off power by driving **ON** LOW.
 
-@TODO
+### Dependencies
+
+ * Wire.h (usually included)
+ * RTCLib (https://github.com/NeiroNx/RTCLib - do not use the Adafruit Fork!)
+
+### @TODO
 
 ## Power
 While sleeping current draw for *µPoff* is ~10µA. Output should be fine for up to 1A.
 
 ## Common problems
+
 ### Boot-time vs. signal time
 The external sensor has to keep **SW** low until the µC is running and driving **ON**. Some µCs take several hundreds of milliseconds to boot. If your sensors pulse is too short you might be able to stretch it using some R+C magic.
 
