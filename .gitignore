@@ -1,3 +1,8 @@
+
+# Created by https://www.gitignore.io/api/kicad,platformio
+# Edit at https://www.gitignore.io/?templates=kicad,platformio
+
+### KiCad ###
 # For PCBs designed using KiCad: http://www.kicad-pcb.org/
 # Format documentation: http://kicad-pcb.org/help/file-formats/
 
@@ -5,8 +10,8 @@
 *.000
 *.bak
 *.bck
-*.kicad_pcb-bak
 *.sch-bak
+*.kicad_pcb-bak
 *~
 _autosave-*
 *.tmp
@@ -24,3 +29,21 @@ fp-info-cache
 # Exported BOM files
 *.xml
 *.csv
+
+### KiCad Patch ###
+escue-backup/
+
+*.tsv
+bom/
+
+# Gerber export output
+out/
+
+### PlatformIO ###
+.pioenvs
+.piolibdeps
+.clang_complete
+.gcc-flags.json
+.pio
+
+# End of https://www.gitignore.io/api/kicad,platformio
