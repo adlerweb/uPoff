@@ -8,16 +8,16 @@ It is mainly aimed at battery powered sensor applications like door sensors, whi
 
 ## Connecting your µC
 
-Remove the positive connection between your power source and µC. Connect the battery to **VCC** and your µC to **OUT**. Additionally connect **GND** to your existing ground. The external sensor should pull **SW** low to activate the circuit. Lastly run a wire between one of your GPIO-Pins and **ON**. If you want to use the included RTC you'll also need to connect the I²C-Lines **SDA** and **SCL**. On AVR and STM32 based microcontrollers you'll have to use the dedicated I²C pins, on ESP8266, ESP32 you can use any free GPIO.
+Remove the positive connection between your power source and µC. Connect the battery to **VCC** and your µC to **OUT**. Additionally connect **GND** to your existing ground. The external sensor should pull **^SW** low to activate the circuit. Lastly run a wire between one of your GPIO-Pins and **ON**. If you want to use the included RTC you'll also need to connect the I²C-Lines **SDA** and **SCL**. On AVR and STM32 based microcontrollers you'll have to use the predefined I²C pins, on ESP8266, ESP32 you can use any free GPIO.
 
 ## Software control
 
-Usually power only stays on as long as **SW** is low, however most tasks take longer to complete. To keep power on it is crucial to drive **ON** high as soon as your µC is started. When finished you can turn off power by driving **ON** LOW.
+Usually power only stays on as long as **^ON** is low, however most tasks take longer to complete. To keep power on it is crucial to drive **ON** high as soon as your µC is started. When finished you can turn off power by driving **ON** LOW.
 
 ### Dependencies
 
  * Wire.h (usually included)
- * RTCLib (https://github.com/NeiroNx/RTCLib - do not use the Adafruit Fork!)
+ * elpaso Rtc_Pcf8563 (https://github.com/elpaso/Rtc_Pcf8563)
 
 ### @TODO
 
@@ -27,6 +27,6 @@ While sleeping current draw for *µPoff* is ~10µA. Output should be fine for up
 ## Common problems
 
 ### Boot-time vs. signal time
-The external sensor has to keep **SW** low until the µC is running and driving **ON**. Some µCs take several hundreds of milliseconds to boot. If your sensors pulse is too short you might be able to stretch it using some R+C magic.
+The external sensor has to keep **^ON** low until the µC is running and driving **ON**. Some µCs take several hundreds of milliseconds to boot. If your sensors pulse is too short you might be able to stretch it using some R+C magic.
 
  
