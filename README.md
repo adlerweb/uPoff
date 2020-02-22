@@ -4,7 +4,8 @@
 It is mainly aimed at battery powered sensor applications like door sensors, which also should report their battery level and presence regularly.
 
 ## Pinout
-@TODO
+
+![Pinout diagram](https://github.com/adlerweb/uPoff/blob/master/doc/RTC-Pinout.png?raw=true)
 
 ## Connecting your µC
 
@@ -19,7 +20,64 @@ Usually power only stays on as long as **^ON** is low, however most tasks take l
  * Wire.h (usually included)
  * elpaso Rtc_Pcf8563 (https://github.com/elpaso/Rtc_Pcf8563)
 
-### @TODO
+### Manual wake only
+```
+#include "upoff.h"
+UPOFF upoff;
+
+void setup() {
+  upoff.on(D1); //ON connected to D1
+}
+
+void loop() {
+  //do something
+  upoff.off();
+}
+```
+
+### Manual and timed wake
+
+```
+#include "upoff.h"
+UPOFF upoff;
+
+bool reason;
+
+void setup() {
+  reason = upoff.on(D1, D2, D3); //D1 = ON; D2 = SDA; D3 = SCL
+  //reason = upoff.on(D1, true); //Use predefined I²C-Pins
+
+  /* Set clock */
+  while(!upoff.isValid(false)) {
+    upoff.setTime(20, 02, 02, 02, 02, 02); //2020-02-02 02:02:02
+    yield();
+  }
+}
+
+void loop() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  if(reason) {
+    /* either first boot or caused by RTC */
+    byte loops=5;
+    while(loops > 0) {
+      digitalWrite(LED_BUILTIN, LOW);
+      delay(100);
+      digitalWrite(LED_BUILTIN, HIGH);
+      delay(100);
+      loops--;
+    }
+  }else{
+    /* manual trigger */
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(1000);
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(1000);
+  }
+
+  /* Sleep for 15 seconds */
+  upoff.off(15);
+}
+```
 
 ## Power
 While sleeping current draw for *µPoff* is ~10µA. Output should be fine for up to 1A.
