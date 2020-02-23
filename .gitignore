@@ -34,7 +34,7 @@ fp-info-cache
 escue-backup/
 
 *.tsv
-bom/
+#bom/
 
 # Gerber export output
 out/
