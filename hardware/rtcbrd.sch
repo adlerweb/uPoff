@@ -113,17 +113,6 @@ F 3 "~" H 5600 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R1
-U 1 1 5D7B21B9
-P 2800 2900
-F 0 "R1" H 2870 2946 50  0000 L CNN
-F 1 "120kΩ" H 2870 2855 50  0000 L CNN
-F 2 "Resistors_SMD:R_0402" V 2730 2900 50  0001 C CNN
-F 3 "~" H 2800 2900 50  0001 C CNN
-	1    2800 2900
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R R3
 U 1 1 5D7B2304
 P 3600 3050
@@ -206,17 +195,6 @@ F 1 "GND" H 3955 3527 50  0000 C CNN
 F 2 "" H 3950 3700 50  0001 C CNN
 F 3 "" H 3950 3700 50  0001 C CNN
 	1    3950 3700
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR0105
-U 1 1 5D7BA6A6
-P 2800 2750
-F 0 "#PWR0105" H 2800 2600 50  0001 C CNN
-F 1 "VCC" H 2817 2923 50  0000 C CNN
-F 2 "" H 2800 2750 50  0001 C CNN
-F 3 "" H 2800 2750 50  0001 C CNN
-	1    2800 2750
 	1    0    0    -1  
 $EndComp
 Text GLabel 2800 3700 1    50   Input ~ 0
@@ -323,12 +301,8 @@ Text Notes 3100 600  0    50   ~ 0
 Input
 Text Notes 6100 600  0    50   ~ 0
 RTC
-Text GLabel 2800 3050 3    50   Input ~ 0
-TRIG
 Text GLabel 2800 4000 3    50   Input ~ 0
 TRIG
-Wire Notes Line
-	2350 3400 3350 3400
 Wire Notes Line
 	2350 500  2350 4350
 Wire Notes Line
@@ -394,8 +368,8 @@ Text Notes 5600 2500 0    50   ~ 0
 Output Switching
 Text Notes 4250 2500 0    50   ~ 0
 Digital On
-Text Notes 3050 2500 0    50   ~ 0
-PullUp
+Text Notes 2650 2500 0    50   ~ 0
+Switching PullUp
 Text Notes 2850 3550 0    50   ~ 0
 External On\n
 Text GLabel 5600 1250 2    50   Input ~ 0
@@ -423,4 +397,74 @@ Text GLabel 1450 1300 2    50   Input ~ 0
 SDA
 Text GLabel 1450 1400 2    50   Input ~ 0
 SCL
+Text GLabel 2800 3050 3    50   Input ~ 0
+TRIG
+$Comp
+L power:VCC #PWR0105
+U 1 1 5D7BA6A6
+P 2800 2750
+F 0 "#PWR0105" H 2800 2600 50  0001 C CNN
+F 1 "VCC" H 2817 2923 50  0000 C CNN
+F 2 "" H 2800 2750 50  0001 C CNN
+F 3 "" H 2800 2750 50  0001 C CNN
+	1    2800 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5D7B21B9
+P 2800 2900
+F 0 "R1" H 2870 2946 50  0000 L CNN
+F 1 "120kΩ" H 2870 2855 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" V 2730 2900 50  0001 C CNN
+F 3 "~" H 2800 2900 50  0001 C CNN
+	1    2800 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR0115
+U 1 1 5E55A4F4
+P 1750 2750
+F 0 "#PWR0115" H 1750 2600 50  0001 C CNN
+F 1 "VCC" H 1767 2923 50  0000 C CNN
+F 2 "" H 1750 2750 50  0001 C CNN
+F 3 "" H 1750 2750 50  0001 C CNN
+	1    1750 2750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 5E55A4FA
+P 1950 2900
+F 0 "R8" H 2020 2946 50  0000 L CNN
+F 1 "1.2kΩ" H 2020 2855 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" V 1880 2900 50  0001 C CNN
+F 3 "~" H 1950 2900 50  0001 C CNN
+	1    1950 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5E55B16D
+P 1550 2900
+F 0 "R7" H 1620 2946 50  0000 L CNN
+F 1 "1.2kΩ" H 1620 2855 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" V 1480 2900 50  0001 C CNN
+F 3 "~" H 1550 2900 50  0001 C CNN
+	1    1550 2900
+	1    0    0    -1  
+$EndComp
+Text GLabel 1550 3050 3    50   Input ~ 0
+SDA
+Text GLabel 1950 3050 3    50   Input ~ 0
+SCL
+Wire Wire Line
+	1550 2750 1750 2750
+Wire Wire Line
+	1750 2750 1950 2750
+Connection ~ 1750 2750
+Text Notes 2300 2500 2    50   ~ 0
+Data PullUp
+Wire Notes Line
+	500  3400 3350 3400
 $EndSCHEMATC
