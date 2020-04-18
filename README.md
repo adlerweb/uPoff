@@ -5,11 +5,11 @@ It is mainly aimed at battery powered sensor applications like door sensors, whi
 
 ## Pinout
 
-![Pinout diagram](https://github.com/adlerweb/uPoff/blob/master/doc/RTC-Pinout.png?raw=true)
+![Pinout diagram](https://github.com/FrederikWolter/uPoff/blob/master/doc/RTC-Pinout.png?raw=true)
 
 ## PCB
 
-![0402_top](https://github.com/FrederikWolter/uPoff/blob/master/doc/PCB_uPoff_0402_top.svg?raw=true)
+![0402_top](https://github.com/FrederikWolter/uPoff/blob/master/doc/PCB_0402_top.png?raw=true)
 
 ## Connecting your µC
 
