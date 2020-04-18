@@ -9,7 +9,7 @@ It is mainly aimed at battery powered sensor applications like door sensors, whi
 
 ## PCB
 
-![0402_top](https://github.com/FrederikWolter/uPoff/blob/master/doc/PCB_uPoff_0402_top.svg)
+![0402_top](https://github.com/FrederikWolter/uPoff/blob/master/doc/PCB_uPoff_0402_top.svg?raw=true)
 
 ## Connecting your µC
 
