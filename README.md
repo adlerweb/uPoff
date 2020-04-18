@@ -7,6 +7,10 @@ It is mainly aimed at battery powered sensor applications like door sensors, whi
 
 ![Pinout diagram](https://github.com/adlerweb/uPoff/blob/master/doc/RTC-Pinout.png?raw=true)
 
+## PCB
+
+![0402_top](https://github.com/FrederikWolter/uPoff/blob/master/doc/PCB_uPoff_0402_top.svg)
+
 ## Connecting your µC
 
 Remove the positive connection between your power source and µC. Connect the battery to **VCC** and your µC to **OUT**. Additionally connect **GND** to your existing ground. The external sensor should pull **^SW** low to activate the circuit. Lastly run a wire between one of your GPIO-Pins and **ON**. If you want to use the included RTC you'll also need to connect the I²C-Lines **SDA** and **SCL**. On AVR and STM32 based microcontrollers you'll have to use the predefined I²C pins, on ESP8266, ESP32 you can use any free GPIO.
