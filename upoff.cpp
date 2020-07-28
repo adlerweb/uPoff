@@ -81,21 +81,21 @@
                 return false;
              }
              temp = rtc.getHour();
-             if(temp > 24 || temp == 0 ) {
+             if(temp > 24 ) {
                 #ifdef UPOFF_DEBUG
                     Serial.println("E:Hour");
                 #endif
                 return false;
              }
              temp = rtc.getMinute();
-             if(temp > 59 || temp == 0 ) {
+             if(temp > 59 ) {
                 #ifdef UPOFF_DEBUG
                     Serial.println("E:Minute");
                 #endif
                 return false;
              }
              temp = rtc.getSecond();
-             if(temp > 59 || temp == 0) {
+             if(temp > 59 ) {
                 #ifdef UPOFF_DEBUG
                     Serial.println("E:Second");
                 #endif
