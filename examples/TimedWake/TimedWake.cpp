@@ -2,13 +2,23 @@
 #include "upoff.h"
 
 UPOFF upoff;
-
 bool reason;
 
 void setup() {
+  /**
+   * Keep circuit switched on and read reason for wake
+   * D1 = On-Pin
+   * D3 = SDA
+   * D2 = SCL
+   */
   reason = upoff.on(D1, D3, D2);
 
-  /* Anti BS */
+  /**
+   * RTC may do silly stuff if no date is set
+   * if it appears to be unprogrammed choose a
+   * random date, as we only use relative times
+   * anyway. Feel free to sync with NTP if desired.
+   */
   while(!upoff.isValid(false)) {
     upoff.setTime(20, 02, 02, 02, 02, 02);
     yield();
